@@ -1,0 +1,6 @@
+<h2>Register new account</h2>
+<form action="/register/validate" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>

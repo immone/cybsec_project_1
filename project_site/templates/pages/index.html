@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Resource app</title>
+    </head>
+
+
+    <body>
+		<h1>Resource app</h1>
+
+        <table>
+		<tr>
+		<th style="text-align:left">User: <td>{{user.username}}
+		</table>
+
+        <form action='logout/' method="POST">
+			{% csrf_token %}
+            <input type="submit" value="Logout"/>
+
+        </form>
+
+        <h2>Your resources:</h2>
+
+		{% for desc in resources %}
+
+		{{desc.name}} </br>
+
+		{% endfor %}
+
+
+        <h2>List resource amount (type name here):</h2>
+
+        <form action='list/' method="GET">
+
+            <input name="list_field"/>
+            <input type="submit" value="List"/>
+        </form>
+
+     <h2>Spend resources (type name and amount here):</h2>
+
+        <form action='spend/' method="POST">
+            {% csrf_token %}
+
+			<input name="spend_field_name" value="name"/>
+            <input name="spend_field_amount" value="amount"/>
+            <input type="submit" value="Spend"/>
+        </form>
+    </body>
+
+
+    </body>
+</html>

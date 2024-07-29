@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Resource app</title>
+    </head>
+
+
+    <body>
+		<h1>Resource app</h1>
+
+        <table>
+		<tr>
+		<th style="text-align:left">User: <td>{{user.username}}
+		</table>
+
+        <form action='logout/' method="POST">
+			{% csrf_token %}
+            <input type="submit" value="Logout"/>
+
+        </form>
+
+        <h2>Add resources to user:</h2>
+
+         <form action='add/' method="POST">
+			{% csrf_token %}
+
+            <span>To user:</span><br/>
+            <select name="to">
+			{% for account in accounts %}
+                <option value="{{account.owner.username}}">{{account.owner.username}}</option>
+			{% endfor %}
+            </select><br/>
+
+             <span>Resource name:</span><br/>
+            <input type="text" name="name"/><br/>
+
+            <span>Amount:</span><br/>
+            <input type="number" name="amount"/><br/>
+
+            <input type="submit" value="Add"/>
+        </form>
+
+
+    </body>
+</html>
