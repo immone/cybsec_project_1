@@ -8,5 +8,5 @@ urlpatterns = [
     path('register/validate', validateView, name='validate'),
     path('add/', addView, name='add'),
     path('list/', listView, name='list'),
-    path('spend/', spendView, name='spend')
+    path('spend/', spendView, name='spendl')
 ]
